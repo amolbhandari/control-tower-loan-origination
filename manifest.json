@@ -1,0 +1,44 @@
+{
+  "name": "loan-origination",
+  "displayName": "Loan Origination",
+  "version": "1.0.0",
+  "description": "End-to-end loan file lifecycle: pipeline, detail, application intake, status transitions, milestones, and timeline.",
+  "license": "MIT",
+  "entryPoint": "src/pages/Loans.tsx",
+  "files": {
+    "pages": [
+      "src/pages/Loans.tsx",
+      "src/pages/LoanDetail.tsx",
+      "src/pages/LoanForm.tsx",
+      "src/pages/LoanImport.tsx"
+    ],
+    "hooks": [
+      "src/hooks/useLoans.ts",
+      "src/hooks/useLoanApplication.ts",
+      "src/hooks/useLoanTransitions.ts",
+      "src/hooks/useLoanTimeline.ts",
+      "src/hooks/useLoanMilestones.ts"
+    ],
+    "components": [
+      "src/components/loans/LoanTimeline.tsx",
+      "src/components/loans/MilestoneTracker.tsx",
+      "src/components/loans/RiskBadge.tsx",
+      "src/components/loans/LoanDisclosuresCard.tsx"
+    ]
+  },
+  "edgeFunctions": [
+    "transition-loan-status",
+    "import-loans-csv"
+  ],
+  "database": {
+    "tables": [
+      "loans",
+      "loan_timeline_events",
+      "loan_milestones",
+      "loan_conditions"
+    ]
+  },
+  "sharedEdgeFunctionUtils": [
+    "supabase/functions/_shared/dispatch-notification.ts"
+  ]
+}
